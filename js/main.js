@@ -217,4 +217,42 @@ document.addEventListener('DOMContentLoaded', () => {
         filterStreaming.addEventListener('change', updateTable);
         sortTable.addEventListener('change', updateTable);
     }
+    // 5. Redirect on Homepage Scroll
+    const isHomepage = document.getElementById('typing-subtitle') !== null;
+    if (isHomepage) {
+        let isRedirecting = false;
+        function redirectToBlog() {
+            if (!isRedirecting) {
+                isRedirecting = true;
+                window.location.href = 'blog.html';
+            }
+        }
+
+        // Mouse Wheel Redirect
+        window.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) {
+                redirectToBlog();
+            }
+        }, { passive: true });
+
+        // Touch Swipe Redirect for Mobile
+        let touchStartY = 0;
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].pageY;
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            let touchEndY = e.touches[0].pageY;
+            if (touchStartY - touchEndY > 50) { // Swiped up (meaning scrolling down)
+                redirectToBlog();
+            }
+        }, { passive: true });
+
+        // Scroll Redirect (fallback)
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 5) {
+                redirectToBlog();
+            }
+        }, { passive: true });
+    }
 });
