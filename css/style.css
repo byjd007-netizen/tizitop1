@@ -153,39 +153,31 @@ a:hover {
     letter-spacing: -0.02em;
 }
 
+.site-header nav {
+    margin-left: auto;
+    margin-right: 48px;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 36px;
+    gap: 48px;
 }
 
 .nav-link {
-    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-weight: 400; /* Regular weight like Image 2 */
     color: var(--text-secondary);
     position: relative;
     padding: 8px 0;
     font-size: 0.95rem;
+    transition: var(--transition);
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--primary);
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    border-radius: 2px;
-    transition: var(--transition);
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
 
 .nav-btn {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
