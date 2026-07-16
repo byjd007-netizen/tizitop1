@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机场梯子多维度对比与推荐 | TiZi Top 评测平台</title>
+    <meta name="description" content="2026年最新网络加速器与机场梯子多维度实时对比表。提供高性价比中转机场与企业级IPLC/IEPL专线机场推荐，解锁Netflix、Disney+、ChatGPT等流媒体与人工智能场景。">
+    <meta name="keywords" content="机场推荐,梯子推荐,加速器对比,IEPL专线,科学上网,IPLC专线,解锁Netflix,ChatGPT节点">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 顶部导航栏 -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" id="nav-logo">
+                <div class="logo-icon">T</div>
+                <span class="logo-text">TiZi Top</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" id="nav-home">首页</a></li>
+                    <li><a href="comparison.html" class="nav-link active" id="nav-compare">对比评测</a></li>
+                    <li><a href="faq.html" class="nav-link" id="nav-faq">常见问题</a></li>
+                    <li><a href="about.html" class="nav-link" id="nav-about">关于我们</a></li>
+                </ul>
+            </nav>
+            <a href="comparison.html" class="nav-btn" id="nav-cta">查看对比</a>
+        </div>
+    </header>
+
+    <!-- 页面标题 & 面包屑 -->
+    <section class="page-header-section">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">首页</a> &gt; <span>对比评测</span>
+            </div>
+            <h1>2026最新网络加速器与机场梯子多维度深度对比</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">提供全网主流服务商的实时性能监测、协议规格及性价比对分析</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- 对比表格区块 -->
+        <section class="section" id="compare-section" style="padding-top: 40px;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>实时监测：加速服务商性能与价格对比矩阵</h2>
+                    <p>通过下方工具可以过滤特定协议和流媒体解锁需求，快速筛选您心仪的套餐</p>
+                </div>
+
+                <!-- 筛选与排序工具条 -->
+                <div class="table-filter-bar">
+                    <div class="filter-group">
+                        <span class="filter-label">核心协议:</span>
+                        <select id="filter-protocol" class="filter-select">
+                            <option value="all">全部协议</option>
+                            <option value="Shadowsocks">Shadowsocks</option>
+                            <option value="V2ray">V2ray / VMess</option>
+                            <option value="Trojan">Trojan</option>
+                            <option value="Hysteria2">Hysteria 2</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <span class="filter-label">流媒体解锁:</span>
+                        <select id="filter-streaming" class="filter-select">
+                            <option value="all">全部解锁</option>
+                            <option value="Netflix">Netflix</option>
+                            <option value="Disney+">Disney+</option>
+                            <option value="ChatGPT">ChatGPT</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <span class="filter-label">排序方式:</span>
+                        <select id="sort-table" class="filter-select">
+                            <option value="date-desc">最后测试时间 (最新)</option>
+                            <option value="price-asc">价格：从低到高</option>
+                            <option value="price-desc">价格：从高到低</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 对比数据表格 -->
+                <div class="table-wrapper">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th><h3>全网主流加速服务商关键性能与价格对比表</h3></th>
+                                <th>协议类型</th>
+                                <th>流媒体/AI解锁</th>
+                                <th>参考月均价格</th>
+                                <th>最后测试时间</th>
+                                <th>深度报告</th>
+                            </tr>
+                        </thead>
+                        <tbody id="compare-table-body">
+                            <!-- 实体 1: 极速云 -->
+                            <tr data-protocols="Shadowsocks,Trojan" data-streaming="Netflix,Disney+,ChatGPT" data-price="15" data-date="2026-07-15">
+                                <td>
+                                    <div class="provider-info">
+                                        <div class="provider-logo">云</div>
+                                        <div>
+                                            <div class="provider-name">极速云 (SpeedCloud)</div>
+                                            <div style="font-size: 0.8rem; color: var(--success);">● 运行稳定 - 推荐</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-protocol">Shadowsocks</span>
+                                    <span class="badge-protocol">Trojan</span>
+                                </td>
+                                <td>
+                                    <div class="unlock-group">
+                                        <span class="badge-unlock unlock-yes">Netflix ✔</span>
+                                        <span class="badge-unlock unlock-yes">Disney+ ✔</span>
+                                        <span class="badge-unlock unlock-yes">ChatGPT ✔</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="card-price">¥15.00 <span>/ 月</span></div>
+                                </td>
+                                <td style="font-family: monospace;">2026-07-15</td>
+                                <td>
+                                    <a href="disclosure.html" class="btn-detail" id="btn-report-speedcloud">阅读评测</a>
+                                </td>
+                            </tr>
+                            <!-- 实体 2: 飞梭专线 -->
+                            <tr data-protocols="Hysteria2,V2ray" data-streaming="Netflix,ChatGPT" data-price="29" data-date="2026-07-16">
+                                <td>
+                                    <div class="provider-info">
+                                        <div class="provider-logo">梭</div>
+                                        <div>
+                                            <div class="provider-name">飞梭专线 (FlyShuttle)</div>
+                                            <div style="font-size: 0.8rem; color: var(--secondary);">● 高带宽专线</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-protocol">Hysteria 2</span>
+                                    <span class="badge-protocol">V2ray</span>
+                                </td>
+                                <td>
+                                    <div class="unlock-group">
+                                        <span class="badge-unlock unlock-yes">Netflix ✔</span>
+                                        <span class="badge-unlock unlock-no">Disney+ ✘</span>
+                                        <span class="badge-unlock unlock-yes">ChatGPT ✔</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="card-price">¥29.00 <span>/ 月</span></div>
+                                </td>
+                                <td style="font-family: monospace;">2026-07-16</td>
+                                <td>
+                                    <a href="disclosure.html" class="btn-detail" id="btn-report-flyshuttle">阅读评测</a>
+                                </td>
+                            </tr>
+                            <!-- 实体 3: 极光加速 -->
+                            <tr data-protocols="Shadowsocks,V2ray" data-streaming="Netflix,Disney+,ChatGPT" data-price="9.9" data-date="2026-07-10">
+                                <td>
+                                    <div class="provider-info">
+                                        <div class="provider-logo">光</div>
+                                        <div>
+                                            <div class="provider-name">极光加速 (AuroraSpeed)</div>
+                                            <div style="font-size: 0.8rem; color: var(--warning);">● 适合入门尝鲜</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge-protocol">Shadowsocks</span>
+                                    <span class="badge-protocol">V2ray</span>
+                                </td>
+                                <td>
+                                    <div class="unlock-group">
+                                        <span class="badge-unlock unlock-yes">Netflix ✔</span>
+                                        <span class="badge-unlock unlock-yes">Disney+ ✔</span>
+                                        <span class="badge-unlock unlock-yes">ChatGPT ✔</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="card-price">¥9.90 <span>/ 月</span></div>
+                                </td>
+                                <td style="font-family: monospace;">2026-07-10</td>
+                                <td>
+                                    <a href="disclosure.html" class="btn-detail" id="btn-report-aurora">阅读评测</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 场景推荐卡片区块 -->
+        <section class="section" id="recommend-section" style="background-color: rgba(241, 245, 249, 0.4);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选网络加速服务场景选购推荐</h2>
+                    <p>依据不同的财务预算和使用环境深度定制的选购方案</p>
+                </div>
+
+                <div class="grid-cards">
+                    <!-- 卡片 1 -->
+                    <article class="card">
+                        <span class="card-tag tag-stable">日常娱乐</span>
+                        <h3 class="card-title">稳定不掉线的性价比加速器推荐</h3>
+                        <p class="card-desc">为学生群体、追剧党和一般网民精选的日常娱乐连接方案，注重经济适用与节点备份能力。</p>
+                        <ul class="card-features">
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 针对热门流媒体优化</li>
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 支持Shadowsocks/VMess主流协议</li>
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 备用节点充足，抗干扰力好</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="card-price">¥9.90起<span>/月</span></span>
+                            <a href="disclosure.html" class="btn-detail" id="btn-rec-stable">查看对应机场</a>
+                        </div>
+                    </article>
+
+                    <!-- 卡片 2 -->
+                    <article class="card">
+                        <span class="card-tag tag-pro">跨境生产力</span>
+                        <h3 class="card-title">适合跨境办公与低延迟游戏的专线机场</h3>
+                        <p class="card-desc">为外贸出海、学术研究以及主机跨服游戏设计的商业级专线网络，无视网络晚高峰拥堵。</p>
+                        <ul class="card-features">
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> IPLC/IEPL 国际专线传输</li>
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> 延迟超低且网络抖动极小</li>
+                            <li><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> ChatGPT/Claude等AI工具完全兼容</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="card-price">¥29.00起<span>/月</span></span>
+                            <a href="disclosure.html" class="btn-detail" id="btn-rec-pro">查看对应专线</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- E-E-A-T 声明 -->
+        <section class="section">
+            <div class="container">
+                <div class="eeat-section">
+                    <span class="eeat-badge">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        E-E-A-T 客观测评
+                    </span>
+                    <h2>TiZi Top 评测免责声明与测试透明度说明</h2>
+                    <p style="margin-bottom: 24px;">我们深刻理解用户对可信、安全评测内容的需求。以下为我们的评测准则与运作方式。</p>
+
+                    <div class="eeat-grid">
+                        <div class="eeat-item">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                我们的网络测试方法与数据来源
+                            </h3>
+                            <p>本站测试数据均来自本团队部署在上海电信、北京联通和广州移动三个节点的自动化监测脚本，每日多次对主流加速服务的延迟、丢包率、解锁稳定性进行测速，数据不掺水分，确保客观透明。</p>
+                        </div>
+                        <div class="eeat-item">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                联署营销与广告赞助透明度披露
+                            </h3>
+                            <p>当您通过本站推荐的链接购买服务时，服务商可能会支付我们微薄的引流返利，但这绝对不影响我们的评分标准。我们从不接受任何通过修改评测结果来换取赞助的要求。</p>
+                        </div>
+                    </div>
+
+                    <div class="eeat-footer">
+                        <a href="disclosure.html" class="eeat-link" id="eeat-link-disclosure">
+                            查看完整联署营销及广告利益透明度政策 →
+                        </a>
+                        <a href="about.html" class="eeat-link" id="eeat-link-about">
+                            关于我们及测试团队背景介绍 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>TiZi Top</h3>
+                    <p class="footer-desc">
+                        TiZi Top 致力于打造中文互联网最具公信力的加速服务与机场梯子深度测评平台。通过技术化和自动化的评测手段，还互联网用户一个公正透明的评测世界。
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>友情跳转</h4>
+                    <ul class="footer-links">
+                        <li><a href="comparison.html">加速服务对比</a></li>
+                        <li><a href="comparison.html#recommend-section">个性化推荐</a></li>
+                        <li><a href="faq.html">用户常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">测试团队介绍</a></li>
+                        <li><a href="disclosure.html">评测免责声明</a></li>
+                        <li><a href="disclosure.html">商业推广披露</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 TiZi Top. All Rights Reserved. 仅作网络技术学习与研究之用，请在当地法律法规框架下合法合理使用互联网。</p>
+                <div class="footer-meta">
+                    <a href="disclosure.html" style="color: #64748b; margin-right: 15px;">免责声明</a>
+                    <a href="about.html" style="color: #64748b;">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

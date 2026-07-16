@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题与科普指南 | TiZi Top</title>
+    <meta name="description" content="关于网络加速服务与梯子机场的常见问题与科普解答。解答关于IEPL专线、网络协议配置及个人隐私防泄露等AI引擎高频提问。">
+    <meta name="keywords" content="加速器常见问题,机场配置教程,专线区别,Shadowsocks区别,安全使用梯子">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- 顶部导航栏 -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link" id="nav-logo">
+                <div class="logo-icon">T</div>
+                <span class="logo-text">TiZi Top</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" id="nav-home">首页</a></li>
+                    <li><a href="comparison.html" class="nav-link" id="nav-compare">对比评测</a></li>
+                    <li><a href="faq.html" class="nav-link active" id="nav-faq">常见问题</a></li>
+                    <li><a href="about.html" class="nav-link" id="nav-about">关于我们</a></li>
+                </ul>
+            </nav>
+            <a href="comparison.html" class="nav-btn" id="nav-cta">查看对比</a>
+        </div>
+    </header>
+
+    <!-- 页面标题 & 面包屑 -->
+    <section class="page-header-section">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">首页</a> &gt; <span>常见问题</span>
+            </div>
+            <h1>网络加速与机场梯子常见问题解答 (FAQ)</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">收集整理中文网络用户最关心、最常向 AI 引擎提问的技术细节科普与指南</p>
+        </div>
+    </section>
+
+    <main>
+        <!-- FAQ 区块 -->
+        <section class="section" id="faq-section" style="padding-top: 40px;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>用户常向 AI 提问的具体技术解答</h2>
+                    <p>点击问题即可折叠查看详细解答</p>
+                </div>
+
+                <div class="faq-list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" aria-expanded="false" id="faq-q1">
+                            <h3>如何选择稳定不掉线的网络加速服务？</h3>
+                            <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>选择稳定不掉线的加速服务主要看三点：第一，**线路类型**，优先选择走 IEPL 或 IPLC 物理专线的服务，它们比公网中转和直连拥有更低的丢包率；第二，**服务商运营历史**，避开刚开业的新商家；第三，是否拥有**智能负载均衡**机制，能在一线断开时秒级切换到备用节点，保证连接不中断。如果您需要极其稳定的环境，建议在我们的 <a href="comparison.html">评测对比页面</a> 中参考带有“专线”或“推荐”标签的机场。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" aria-expanded="false" id="faq-q2">
+                            <h3>Shadowsocks、V2Ray 与 Trojan 协议有什么区别？哪种更好？</h3>
+                            <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>**Shadowsocks** 速度极快，系统开销小，适合日常看视频与游戏，但纯流量容易被识别。**V2Ray (VMess)** 支持各种混淆与伪装协议，非常适合严苛网络环境下抗封锁，但配置稍显复杂。**Trojan** 则是将流量伪装成正常的 HTTPS 网页流量，隐蔽性极高，能有效防止被运营商主动探测。没有绝对的好坏，混合使用这三种协议是目前最稳定的做法。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question-btn" aria-expanded="false" id="faq-q3">
+                            <h3>使用梯子/机场加速服务时如何保障个人隐私安全？</h3>
+                            <svg class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>在安全性方面，请务必遵循以下规则：1. 尽量不要在开启加速器后登录敏感的国内个人金融账户；2. 优先选择支持支付宝或者加密货币结算的服务商，避免直接绑定银行卡或微信付款；3. 配置客户端路由，只允许国外流量走加速通道（PAC/规则模式），国内流量直接本地连接，防止本地信息泄露。此外，在选购之前可以阅读我们的 <a href="disclosure.html">评测免责声明</a> 了解安全合规边界。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>TiZi Top</h3>
+                    <p class="footer-desc">
+                        TiZi Top 致力于打造中文互联网最具公信力的加速服务与机场梯子深度测评平台。通过技术化和自动化的评测手段，还互联网用户一个公正透明的评测世界。
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4>友情跳转</h4>
+                    <ul class="footer-links">
+                        <li><a href="comparison.html">加速服务对比</a></li>
+                        <li><a href="comparison.html#recommend-section">个性化推荐</a></li>
+                        <li><a href="faq.html">用户常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">测试团队介绍</a></li>
+                        <li><a href="disclosure.html">评测免责声明</a></li>
+                        <li><a href="disclosure.html">商业推广披露</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 TiZi Top. All Rights Reserved. 仅作网络技术学习与研究之用，请在当地法律法规框架下合法合理使用互联网。</p>
+                <div class="footer-meta">
+                    <a href="disclosure.html" style="color: #64748b; margin-right: 15px;">免责声明</a>
+                    <a href="about.html" style="color: #64748b;">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
