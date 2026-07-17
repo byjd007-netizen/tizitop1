@@ -8,11 +8,47 @@
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .article-layout-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 120px auto 60px;
             padding: 0 24px;
             display: flex;
-            gap: 40px;
+            gap: 30px;
+        }
+        .sidebar-left {
+            width: 220px;
+            flex-shrink: 0;
+        }
+        .toc-widget {
+            position: sticky;
+            top: 100px;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .toc-item {
+            margin-bottom: 12px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        .toc-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+        }
+        .toc-item a:hover {
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 500;
         }
         .main-content {
             flex: 1;
@@ -65,7 +101,7 @@
             margin-bottom: 20px;
             font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.8;
         }
         .article-body ul, .article-body ol {
             margin-bottom: 20px;
@@ -74,21 +110,25 @@
         .article-body li {
             margin-bottom: 8px;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
         .article-body strong {
             color: var(--text-primary);
         }
         .sidebar-right {
-            width: 320px;
+            width: 300px;
             flex-shrink: 0;
         }
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .article-layout-container {
                 flex-direction: column;
                 margin-top: 100px;
             }
-            .sidebar-right {
+            .sidebar-left, .sidebar-right {
                 width: 100%;
+            }
+            .toc-widget {
+                position: static;
             }
         }
         .widget {
@@ -106,6 +146,25 @@
             margin-bottom: 16px;
             border-left: 3px solid var(--primary);
             padding-left: 8px;
+        }
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+        }
+        .meta-label {
+            color: var(--text-muted);
+        }
+        .meta-value {
+            color: var(--text-primary);
+            font-weight: 500;
         }
     </style>
 </head>
@@ -132,6 +191,19 @@
     </header>
 
     <div class="article-layout-container">
+        <!-- 左侧：文章目录 -->
+        <aside class="sidebar-left">
+            <div class="widget toc-widget">
+                <h3 class="widget-title">文章目录</h3>
+                <ul class="toc-list">
+                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 中间：正文主栏 -->
         <main class="main-content">
             <div class="breadcrumbs" style="margin-bottom: 25px; font-size: 0.95rem; color: #64748b; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
                 <a href="../index.html" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">首页</a> &gt; 
@@ -154,59 +226,82 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2>一、 核心原理与底层背景深度解析</h2>
+                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
                     <p>节点倍率是机场为了平衡带宽成本而设立的规则。专线（如 IPLC/IEPL）由于物理带宽昂贵，机场通常会通过提高专线节点的倍率来限制用户的过量使用。例如，如果您在 5倍倍率 的专线节点上下载了 1GB 的文件，您的套餐额度就会被扣除 5GB。这对于日常需要进行大文件传输或重度使用流媒体的用户来说，流量会极其迅速地枯竭。而真正的 1倍率机场，则是无论您使用何种节点（包括顶级内网全专线），其流量消耗均按照 1:1 诚实扣除，这背后需要服务商拥有极强的带宽储备与良心的运营理念。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2>二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
                     <p>1. 在注册机场后，首要任务是进入其节点列表页面，仔细核对每个 Clash 节点 旁的‘倍率’或‘RATE’标识；2. 优先选择将主力 IEPL 专线节点设为 1.0x 倍率的服务商；3. 将订阅地址导入客户端后，可以放心在 1倍率的专线节点上进行大流量操作，如观看 4K Netflix 或下载大文件，这能让您的网络花费发挥出最大价值。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
                     <div style="margin: 40px 0; background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(6,182,212,0.05)); border: 1px solid var(--border-accent); border-radius: 12px; padding: 30px; text-align: center;">
-                        <h3 style="font-size: 1.35rem; color: var(--primary); margin-top: 0; margin-bottom: 12px; font-weight: 800;">🚀 2026年全网推荐：EdgeNova 机场深度体验</h3>
+                        <h3 style="font-size: 1.35rem; color: var(--primary); margin-top: 0; margin-bottom: 12px; font-weight: 800;">🚀 站长推荐：优质机场测评与排行</h3>
                         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-                            如果您正在寻找支持 VLESS-Reality、Hysteria2 以及 Tuic 最新协议，且全网性价比极高的专线机场服务，我们强烈推荐 <strong>边缘节点（EdgeNova）</strong>。其全量部署 IEPL 国际专线，免受网络卡顿干扰，晚高峰流媒体播放极其稳定！
+                            如果您正在寻找支持 VLESS-Reality、Hysteria2 以及 Tuic 最新协议，且全网性价比极高的专线机场服务，建议您阅读本站的深度评测及排行榜。我们全量部署多节点延迟监控，免受网络卡顿干扰，晚高峰流媒体播放极其稳定！
                         </p>
-                        <a href="https://cristyc.edgenovaaff.cc/#/register?code=WWiIvxL9" target="_blank" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 12px 30px; font-weight: 700; border-radius: 30px; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px var(--primary-glow);">立即注册 EdgeNova 官网</a>
+                        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                            <a href="../comparison.html" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 12px 25px; font-weight: 700; border-radius: 30px; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px var(--primary-glow);">查看本站机场排行对比</a>
+                            <a href="../reviews.html" style="background: var(--bg-surface); border: 1px solid var(--primary); color: var(--primary); padding: 12px 25px; font-weight: 700; border-radius: 30px; text-decoration: none; display: inline-block; transition: var(--transition);">阅读机场深度评测</a>
+                        </div>
                     </div>
                     
-                    <h2>三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
                     <p>识破倍率陷阱，优先选择诚实好用的 1倍率机场 推荐，可以让您以最低的月付预算锁定制高点，畅享全专线带来的极致稳定科学上网体验。</p>
-                    <p>对于技术型用户和跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
                 </div>
             </article>
         </main>
         
+        <!-- 右侧：侧边栏卡片 -->
         <aside class="sidebar-right">
-            <!-- Info card -->
-            <div class="widget widget-profile" style="text-align: center;">
-                <div class="profile-avatar" style="width: 80px; height: 80px; border-radius: 50%; background-image: url('../images/logo-icon.png'); background-size: cover; background-position: center; margin: 0 auto 15px;"></div>
-                <h3 class="profile-name" style="font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;">TiZi Top 评测团队</h3>
-                <p class="profile-bio" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">专注于分享前沿科学上网技术、网络协议解析与全球优质专线机场深度测评。</p>
-            </div>
-
-            <!-- Announce card -->
-            <div class="widget">
-                <h3 class="widget-title">本站公告</h3>
-                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
-                    欢迎访问 TiZi Top 评测博客！我们致力于提供中文互联网最具公信力的加速服务与机场梯子深度测评，帮您规避消费陷阱。
-                </p>
-            </div>
-
-            <!-- Hot links card -->
-            <div class="widget">
-                <h3 class="widget-title">最近更新文章</h3>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6;">
-                    <li style="margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
-                        <a href="faq_vless_reality.html" style="font-weight: 600; color: var(--text-primary);">VLESS 协议与 Reality 协议深度解析</a>
+            <!-- 文章信息 -->
+            <div class="widget widget-meta-info">
+                <h3 class="widget-title">文章信息</h3>
+                <ul class="meta-list">
+                    <li class="meta-item">
+                        <span class="meta-label">分类</span>
+                        <span class="meta-value">科普指南</span>
                     </li>
-                    <li style="margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
-                        <a href="faq_hysteria2_clash.html" style="font-weight: 600; color: var(--text-primary);">Hysteria2 协议实测与 Clash/小火箭配置</a>
+                    <li class="meta-item">
+                        <span class="meta-label">阅读时间</span>
+                        <span class="meta-value">约 10 分钟</span>
                     </li>
-                    <li style="margin-bottom: 8px;">
-                        <a href="faq_tuic_protocol.html" style="font-weight: 600; color: var(--text-primary);">Tuic 协议深度评测：基于 QUIC 高速通道</a>
+                    <li class="meta-item">
+                        <span class="meta-label">字数统计</span>
+                        <span class="meta-value">约 2800 字</span>
+                    </li>
+                    <li class="meta-item">
+                        <span class="meta-label">最后更新</span>
+                        <span class="meta-value">2026-07-16</span>
                     </li>
                 </ul>
+            </div>
+
+            <!-- 站长首推专线机场 (侧边栏内链跳转广告) -->
+            <div class="widget recommend-widget" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.02), rgba(6, 182, 212, 0.02)); border: 1.5px solid var(--primary); box-shadow: 0 4px 15px rgba(99,102,241,0.06);">
+                <h3 class="widget-title" style="border-left-color: var(--secondary); margin-bottom: 12px;">站长首推机场</h3>
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <img src="../images/logos/edgenova_logo.png" style="width: 40px; height: 40px; border-radius: var(--radius-sm); object-fit: cover;" onerror="this.src='../images/logo-icon.png'">
+                    <div>
+                        <strong style="color: var(--text-primary); font-size: 0.95rem; display: block;">边缘节点 EdgeNova</strong>
+                        <span style="font-size: 0.8rem; color: var(--success); font-weight: 700;">★ 推荐指数 5.0</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+                    全线采用企业级特许 IPLC/IEPL 私有跨国专线，晚高峰免受 GFW 干扰，流畅解锁 Netflix 4K 与 YouTube，性价比及连通性居全网评测第一。
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <a href="../comparison.html" class="nav-btn" style="text-align: center; font-size: 0.85rem; padding: 8px 12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; color: white; width: 100%;">查看本站机场排行 &rarr;</a>
+                    <a href="../reviews.html" class="nav-btn" style="text-align: center; font-size: 0.85rem; padding: 8px 12px; background: transparent; border: 1px solid var(--primary); color: var(--primary); width: 100%;">查看深度评测详情 &rarr;</a>
+                </div>
+            </div>
+
+            <!-- 本站声明 -->
+            <div class="widget">
+                <h3 class="widget-title">本站声明</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                    本站分享的科学上网与网络协议技术教程仅用于合规的网络技术学习、海外学术文献检索及跨国商务外贸往来，请自觉遵守当地法律法规。
+                </p>
             </div>
         </aside>
     </div>
