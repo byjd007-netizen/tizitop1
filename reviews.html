@@ -45,13 +45,104 @@
     <main>
 
         <style>
-            .card-item {
-                will-change: transform, box-shadow, border-color;
+            .reviews-list .post-card {
+                display: flex;
+                gap: 24px;
+                align-items: center;
+                padding: 30px;
+                border-radius: var(--radius-md);
+                background: var(--bg-surface);
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-sm);
+                transition: var(--transition);
+                margin-bottom: 24px;
+                text-decoration: none;
+                position: relative;
             }
-            .card-item:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08) !important;
-                border-color: var(--primary-light) !important;
+            .reviews-list .post-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 30px rgba(99, 102, 241, 0.06);
+                border-color: var(--primary-light);
+            }
+            .reviews-list .post-card .post-title a {
+                color: var(--text-primary);
+                text-decoration: none;
+                transition: var(--transition);
+            }
+            .reviews-list .post-card .post-title a:hover {
+                color: var(--primary);
+            }
+            .reviews-list .post-card .post-more {
+                color: var(--primary);
+                font-weight: 700;
+                text-decoration: none;
+                transition: var(--transition);
+                margin-left: auto;
+                padding: 8px 18px;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+                background: var(--bg-surface);
+            }
+            .reviews-list .post-card:hover .post-more {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+                box-shadow: 0 4px 12px var(--primary-glow);
+            }
+            .pagination {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 40px;
+            }
+            .pagination .page-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 38px;
+                height: 38px;
+                padding: 0 12px;
+                border-radius: 8px;
+                border: 1px solid var(--border-color);
+                background: var(--bg-surface);
+                color: var(--text-secondary);
+                font-weight: 600;
+                text-decoration: none;
+                transition: var(--transition);
+                cursor: pointer;
+                font-size: 0.9rem;
+            }
+            .pagination .page-number:hover:not(.disabled) {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+            .pagination .page-number.active {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+                box-shadow: 0 4px 10px var(--primary-glow);
+            }
+            .pagination .page-number.disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+            @media (max-width: 640px) {
+                .reviews-list .post-card {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+                    padding: 20px;
+                }
+                .reviews-list .post-card img {
+                    align-self: center;
+                }
+                .reviews-list .post-card .post-more {
+                    margin-left: 0;
+                    width: 100%;
+                    text-align: center;
+                }
             }
         </style>
 
@@ -59,123 +150,215 @@
         <section class="section" id="all-reviews-section" style="padding-top: 0; padding-bottom: 60px;">
             <div class="container">
                 <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 40px; text-align: center; background: linear-gradient(135deg, var(--text-primary), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">全部机场深度测评文章</h2>
-                <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;">
+                
+                <div id="reviews-list-container" class="reviews-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 850px; margin: 0 auto;">
                     
                     <!-- 卡片: EdgeNova -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/edgenova_logo.png" alt="EdgeNova" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">EdgeNova</h4>
-                            <span style="font-size: 0.75rem; color: white; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 3px 10px; border-radius: 10px; box-shadow: 0 3px 8px var(--primary-glow);">★ 站长推荐 ★</span>
+                    <article class="post-card" style="border-left: 4px solid var(--primary); background-color: rgba(99, 102, 241, 0.02);">
+                        <img src="images/logos/edgenova_logo.png" alt="EdgeNova" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/edgenova.html">EdgeNova 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: white; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 2px 8px; border-radius: 4px; box-shadow: 0 2px 6px var(--primary-glow);">站长推荐 ★ #1</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：晚高峰秒开</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">综合评分排名第一，全线覆盖顶级中转与IEPL专线，晚高峰带宽表现卓越，流媒体首选。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">综合评分排名第一，全线覆盖顶级中转与IEPL专线，晚高峰带宽表现卓越，流媒体首选。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥15.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/edgenova.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem; background-color: var(--primary); color: white; border-color: var(--primary);">阅读评测</a>
-                        </div>
+                        <a href="articles/edgenova.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 极连云 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/jilianyun_logo.webp" alt="极连云" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">极连云 (JiLianCloud)</h4>
-                            <span style="font-size: 0.75rem; color: var(--success); font-weight: 700; background: var(--success-bg); padding: 3px 10px; border-radius: 10px;">★ 热门评测 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/jilianyun_logo.webp" alt="极连云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/jilianyun.html">极连云 (JiLianCloud) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: var(--success); font-weight: 700; background: var(--success-bg); padding: 2px 8px; border-radius: 4px;">热门评测</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：低延迟中转</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.50 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">主打纯 IPLC/IEPL 国际专线，设备数量无限制，ChatGPT与4K流媒体完美解锁。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">主打纯 IPLC/IEPL 国际专线，设备数量无限制，ChatGPT与4K流媒体完美解锁。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥15.50 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/jilianyun.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/jilianyun.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 光年梯 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/guangnianti_logo.jpg" alt="光年梯" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">光年梯 (GuangNianTi)</h4>
-                            <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700; background: var(--primary-glow); padding: 3px 10px; border-radius: 10px;">★ 最新协议 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/guangnianti_logo.jpg" alt="光年梯" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/guangnianti.html">光年梯 (GuangNianTi) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700; background: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">最新协议</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：千兆大吞吐</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥18.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">支持最新 Hysteria 2 及 VLESS 协议，防封锁性极佳，千兆大吞吐量极客出海首选。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">支持最新 Hysteria 2 及 VLESS 协议，防封锁性极佳，千兆大吞吐量极客出海首选。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥18.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/guangnianti.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/guangnianti.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 寰宇云 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/huanyuyun_logo.png" alt="寰宇云" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">寰宇云 (HuanYuYun)</h4>
-                            <span style="font-size: 0.75rem; color: #06b6d4; font-weight: 700; background: var(--secondary-glow); padding: 3px 10px; border-radius: 10px;">★ 三网优化 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/huanyuyun_logo.png" alt="寰宇云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/huanyuyun.html">寰宇云 (HuanYuYun) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: #06b6d4; font-weight: 700; background: var(--secondary-glow); padding: 2px 8px; border-radius: 4px;">三网优化</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：零丢包传输</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥18.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">整合BGP三网优化线路与IEPL国际专线，提供极速稳定的看剧与跨境办公网络保障。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">整合BGP三网优化线路与IEPL国际专线，提供极速稳定的看剧与跨境办公网络保障。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥18.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/huanyuyun.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/huanyuyun.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 可信云 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/kexinyun_logo.png" alt="可信云" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">可信云 (KeXinYun)</h4>
-                            <span style="font-size: 0.75rem; color: var(--warning); font-weight: 700; background: var(--warning-bg); padding: 3px 10px; border-radius: 10px;">★ 简单易用 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/kexinyun_logo.png" alt="可信云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/kexinyun.html">可信云 (KeXinYun) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: var(--warning); font-weight: 700; background: var(--warning-bg); padding: 2px 8px; border-radius: 4px;">简单易用</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：极简一键端</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">高性价比IEPL专线，支持各大主流流媒体，提供一键使用的极简自研流线客户端。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">高性价比IEPL专线，支持各大主流流媒体，提供一键使用的极简自研流线客户端。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥15.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/kexinyun.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/kexinyun.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 快狸 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/kuaili_logo.png" alt="快狸" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">快狸 (KuaiLi)</h4>
-                            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; background: #e2e8f0; padding: 3px 10px; border-radius: 10px;">★ 稳定运营 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/kuaili_logo.png" alt="快狸" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/kuaili.html">快狸 (KuaiLi) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; background: #e2e8f0; padding: 2px 8px; border-radius: 4px;">稳定运营</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：多入口中转</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">多入口BGP中转与专线加持，抗墙能力优秀，晚高峰黄金时段流媒体播放稳定。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">多入口BGP中转与专线加持，抗墙能力优秀，晚高峰黄金时段流媒体播放稳定。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥15.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/kuaili.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/kuaili.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 瞬云 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/shunyun_logo.png" alt="瞬云" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">瞬云 (ShunYun)</h4>
-                            <span style="font-size: 0.75rem; color: var(--danger); font-weight: 700; background: var(--danger-bg); padding: 3px 10px; border-radius: 10px;">★ 抗封锁强 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/shunyun_logo.png" alt="瞬云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/shunyun.html">瞬云 (ShunYun) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: var(--danger); font-weight: 700; background: var(--danger-bg); padding: 2px 8px; border-radius: 4px;">抗封锁强</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：高频IP轮换</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥20.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">主打高频节点IP轮换，抗封锁和防失联能力拉满，网络高敏感时期最佳避风港。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">主打高频节点IP轮换，抗封锁和防失联能力拉满，网络高敏感时期最佳避风港。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥20.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ 月</span></span>
-                            <a href="articles/shunyun.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/shunyun.html" class="post-more">阅读评测 →</a>
                     </article>
 
                     <!-- 卡片: 速界 -->
-                    <article class="card-item" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-surface); padding: 30px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <img src="images/logos/sujie_logo.png" alt="速界" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-                            <h4 style="font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; color: var(--text-primary);">速界 (SuJie)</h4>
-                            <span style="font-size: 0.75rem; color: #4f46e5; font-weight: 700; background: var(--primary-glow); padding: 3px 10px; border-radius: 10px;">★ 企业级专线 ★</span>
+                    <article class="post-card">
+                        <img src="images/logos/sujie_logo.png" alt="速界" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
+                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/sujie.html">速界 (SuJie) 机场深度评测</a></h3>
+                                <span style="font-size: 0.75rem; color: #4f46e5; font-weight: 700; background: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">企业级专线</span>
+                            </div>
+                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                                <span>延迟测试：黄金响应值</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥25.00 起</span>
+                            </div>
+                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">老牌中端企业级IEPL专线机场，晚高峰响应速度快，连接可靠度极高，适合重度用户。</p>
                         </div>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; text-align: center;">老牌中端企业级IEPL专线机场，晚高峰响应速度快，连接可靠度极高，适合重度用户。</p>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 15px;">
-                            <span style="font-size: 1rem; font-weight: 800; color: var(--primary);">¥25.00 <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500;">/ / 月</span></span>
-                            <a href="articles/sujie.html" class="btn-detail" style="padding: 6px 16px; font-size: 0.8rem;">阅读评测</a>
-                        </div>
+                        <a href="articles/sujie.html" class="post-more">阅读评测 →</a>
                     </article>
 
                 </div>
+
+                <!-- 翻页组件 -->
+                <div class="pagination" id="reviews-pagination">
+                    <!-- Javascript 动态渲染翻页按钮 -->
+                </div>
+
             </div>
         </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const itemsPerPage = 4;
+                const container = document.getElementById("reviews-list-container");
+                const pagination = document.getElementById("reviews-pagination");
+                const items = Array.from(container.getElementsByClassName("post-card"));
+                const totalPages = Math.ceil(items.length / itemsPerPage);
+                let currentPage = 1;
+
+                function showPage(page) {
+                    currentPage = page;
+                    const start = (page - 1) * itemsPerPage;
+                    const end = start + itemsPerPage;
+
+                    items.forEach((item, index) => {
+                        if (index >= start && index < end) {
+                            item.style.display = "flex";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+
+                    updatePagination();
+                    
+                    // Smooth scroll to top of section when changing page
+                    if (page > 1 || window.scrollY > container.offsetTop) {
+                        document.getElementById("all-reviews-section").scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
+                function updatePagination() {
+                    pagination.innerHTML = "";
+                    
+                    // Prev button
+                    const prevBtn = document.createElement("a");
+                    prevBtn.href = "javascript:void(0);";
+                    prevBtn.className = "page-number" + (currentPage === 1 ? " disabled" : "");
+                    prevBtn.innerHTML = "&laquo; 上一页";
+                    if (currentPage > 1) {
+                        prevBtn.addEventListener("click", () => showPage(currentPage - 1));
+                    }
+                    pagination.appendChild(prevBtn);
+
+                    // Page numbers
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageBtn = document.createElement("a");
+                        pageBtn.href = "javascript:void(0);";
+                        pageBtn.className = "page-number" + (i === currentPage ? " active" : "");
+                        pageBtn.innerText = i;
+                        pageBtn.addEventListener("click", () => showPage(i));
+                        pagination.appendChild(pageBtn);
+                    }
+
+                    // Next button
+                    const nextBtn = document.createElement("a");
+                    nextBtn.href = "javascript:void(0);";
+                    nextBtn.className = "page-number" + (currentPage === totalPages ? " disabled" : "");
+                    nextBtn.innerHTML = "下一页 &raquo;";
+                    if (currentPage < totalPages) {
+                        nextBtn.addEventListener("click", () => showPage(currentPage + 1));
+                    }
+                    pagination.appendChild(nextBtn);
+                }
+
+                showPage(1);
+            });
+        </script>
+
 
         <!-- E-E-A-T 声明 -->
         <section class="section">
