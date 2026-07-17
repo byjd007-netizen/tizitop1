@@ -31,64 +31,10 @@
         </div>
     </header>
 
-    <!-- 页面标题 & 面包屑 -->
-    <section class="page-header-section">
-        <div class="container">
-            <div class="breadcrumbs">
-                <a href="index.html">首页</a> &gt; <span>机场测评</span>
-            </div>
-            <h1>精选加速器性能评测与场景选购推荐</h1>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">依据不同的财务预算和使用环境深度定制的选购方案</p>
-        </div>
-    </section>
 
-    <main>
-
+    <main class="container page-container animate-fade-in">
+        
         <style>
-            .reviews-list .post-card {
-                display: flex;
-                gap: 24px;
-                align-items: center;
-                padding: 30px;
-                border-radius: var(--radius-md);
-                background: var(--bg-surface);
-                border: 1px solid var(--border-color);
-                box-shadow: var(--shadow-sm);
-                transition: var(--transition);
-                margin-bottom: 24px;
-                text-decoration: none;
-                position: relative;
-            }
-            .reviews-list .post-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 30px rgba(99, 102, 241, 0.06);
-                border-color: var(--primary-light);
-            }
-            .reviews-list .post-card .post-title a {
-                color: var(--text-primary);
-                text-decoration: none;
-                transition: var(--transition);
-            }
-            .reviews-list .post-card .post-title a:hover {
-                color: var(--primary);
-            }
-            .reviews-list .post-card .post-more {
-                color: var(--primary);
-                font-weight: 700;
-                text-decoration: none;
-                transition: var(--transition);
-                margin-left: auto;
-                padding: 8px 18px;
-                border: 1px solid var(--border-color);
-                border-radius: 6px;
-                background: var(--bg-surface);
-            }
-            .reviews-list .post-card:hover .post-more {
-                background: var(--primary);
-                color: white;
-                border-color: var(--primary);
-                box-shadow: 0 4px 12px var(--primary-glow);
-            }
             .pagination {
                 display: flex;
                 justify-content: center;
@@ -128,157 +74,106 @@
                 cursor: not-allowed;
                 pointer-events: none;
             }
-            @media (max-width: 640px) {
-                .reviews-list .post-card {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 16px;
-                    padding: 20px;
-                }
-                .reviews-list .post-card img {
-                    align-self: center;
-                }
-                .reviews-list .post-card .post-more {
-                    margin-left: 0;
-                    width: 100%;
-                    text-align: center;
-                }
-            }
         </style>
 
-        <!-- 机场深度测评列表 -->
-        <section class="section" id="all-reviews-section" style="padding-top: 0; padding-bottom: 60px;">
-            <div class="container">
-                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 40px; text-align: center; background: linear-gradient(135deg, var(--text-primary), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">全部机场深度测评文章</h2>
-                
-                <div id="reviews-list-container" class="reviews-list" style="display: flex; flex-direction: column; gap: 20px; max-width: 850px; margin: 0 auto;">
+        <!-- 双栏布局 -->
+        <div class="blog-layout">
+            <!-- 右栏：主文章列表区 (3/4 宽度) -->
+            <div class="blog-main">
+                <div id="reviews-list-container" class="post-list" style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
                     
-                    <!-- 卡片: EdgeNova -->
+                    <!-- 文章 1 -->
                     <article class="post-card" style="border-left: 4px solid var(--primary); background-color: rgba(99, 102, 241, 0.02);">
-                        <img src="images/logos/edgenova_logo.png" alt="EdgeNova" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/edgenova.html">EdgeNova 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: white; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 2px 8px; border-radius: 4px; box-shadow: 0 2px 6px var(--primary-glow);">站长推荐 ★ #1</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：晚高峰秒开</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">综合评分排名第一，全线覆盖顶级中转与IEPL专线，晚高峰带宽表现卓越，流媒体首选。</p>
+                        <h3 class="post-title">
+                            <a href="articles/edgenova.html">
+                                <span style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-right: 8px; vertical-align: middle;">站长推荐</span>
+                                EdgeNova机场深度评测：全线顶级专线，晚高峰无缝秒开流媒体首选
+                            </a>
+                        </h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-24</span>
+                            <span>分类：机场测评</span>
+                            <span style="color: var(--primary); font-weight: 600; margin-left: 8px;">★ 推荐指数第一</span>
                         </div>
-                        <a href="articles/edgenova.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">EdgeNova全线覆盖顶级IEPL/IPLC中转及直连节点，专为高带宽与低延迟场景调优，是追求极致顺滑出海体验用户的最佳伙伴。</p>
+                        <a href="articles/edgenova.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 极连云 -->
+                    <!-- 文章 2 -->
                     <article class="post-card">
-                        <img src="images/logos/jilianyun_logo.webp" alt="极连云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/jilianyun.html">极连云 (JiLianCloud) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: var(--success); font-weight: 700; background: var(--success-bg); padding: 2px 8px; border-radius: 4px;">热门评测</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：低延迟中转</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.50 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">主打纯 IPLC/IEPL 国际专线，设备数量无限制，ChatGPT与4K流媒体完美解锁。</p>
+                        <h3 class="post-title"><a href="articles/jilianyun.html">极连云机场深度评测（2026最新）：全网性价比之王，稳定高速不跑路</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-24</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/jilianyun.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">极连云专注于提供纯正IPL/IEPL专线节点，不限设备，完美解锁ChatGPT与Netflix 4K，是出海办公与娱乐的稳定高质之选。</p>
+                        <a href="articles/jilianyun.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 光年梯 -->
+                    <!-- 文章 3 -->
                     <article class="post-card">
-                        <img src="images/logos/guangnianti_logo.jpg" alt="光年梯" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/guangnianti.html">光年梯 (GuangNianTi) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: var(--primary); font-weight: 700; background: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">最新协议</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：千兆大吞吐</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥18.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">支持最新 Hysteria 2 及 VLESS 协议，防封锁性极佳，千兆大吞吐量极客出海首选。</p>
+                        <h3 class="post-title"><a href="articles/guangnianti.html">光年梯深度评测：专为极客打造，支持最新 Hysteria2 及 VLESS 协议</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-22</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/guangnianti.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">支持最新 Hysteria 2 及 VLESS 协议，防封锁性极佳，千兆大吞吐量极客出海首选。</p>
+                        <a href="articles/guangnianti.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 寰宇云 -->
+                    <!-- 文章 4 -->
                     <article class="post-card">
-                        <img src="images/logos/huanyuyun_logo.png" alt="寰宇云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/huanyuyun.html">寰宇云 (HuanYuYun) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: #06b6d4; font-weight: 700; background: var(--secondary-glow); padding: 2px 8px; border-radius: 4px;">三网优化</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：零丢包传输</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥18.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">整合BGP三网优化线路与IEPL国际专线，提供极速稳定的看剧与跨境办公网络保障。</p>
+                        <h3 class="post-title"><a href="articles/huanyuyun.html">寰宇云机场深度评测：BGP三网优化+IEPL专线，Netflix/DAZN全解锁</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-22</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/huanyuyun.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">整合BGP三网优化线路与IEPL国际专线，提供极速稳定的看剧与跨境办公网络保障。</p>
+                        <a href="articles/huanyuyun.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 可信云 -->
+                    <!-- 文章 5 -->
                     <article class="post-card">
-                        <img src="images/logos/kexinyun_logo.png" alt="可信云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/kexinyun.html">可信云 (KeXinYun) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: var(--warning); font-weight: 700; background: var(--warning-bg); padding: 2px 8px; border-radius: 4px;">简单易用</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：极简一键端</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">高性价比IEPL专线，支持各大主流流媒体，提供一键使用的极简自研流线客户端。</p>
+                        <h3 class="post-title"><a href="articles/kexinyun.html">可信云机场深度评测：高性价比 IEPL 专线机场的晚高峰实测与自研客户端选购边界说明</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-21</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/kexinyun.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">高性价比IEPL专线，支持各大主流流媒体，提供一键使用的极简自研流线客户端。</p>
+                        <a href="articles/kexinyun.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 快狸 -->
+                    <!-- 文章 6 -->
                     <article class="post-card">
-                        <img src="images/logos/kuaili_logo.png" alt="快狸" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/kuaili.html">快狸 (KuaiLi) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; background: #e2e8f0; padding: 2px 8px; border-radius: 4px;">稳定运营</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：多入口中转</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥15.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">多入口BGP中转与专线加持，抗墙能力优秀，晚高峰黄金时段流媒体播放稳定。</p>
+                        <h3 class="post-title"><a href="articles/kuaili.html">快狸机场深度评测（2026版）：多地BGP企业专线，流媒体无障碍</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-17</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/kuaili.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">多入口BGP中转与专线加持，抗墙能力优秀，晚高峰黄金时段流媒体播放稳定。</p>
+                        <a href="articles/kuaili.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 瞬云 -->
+                    <!-- 文章 7 -->
                     <article class="post-card">
-                        <img src="images/logos/shunyun_logo.png" alt="瞬云" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/shunyun.html">瞬云 (ShunYun) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: var(--danger); font-weight: 700; background: var(--danger-bg); padding: 2px 8px; border-radius: 4px;">抗封锁强</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：高频IP轮换</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥20.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">主打高频节点IP轮换，抗封锁和防失联能力拉满，网络高敏感时期最佳避风港。</p>
+                        <h3 class="post-title"><a href="articles/shunyun.html">瞬云机场深度评测：主打高频节点轮换，极致抗墙的破冰尖兵</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-05-05</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/shunyun.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">主打高频节点IP轮换，抗封锁和防失联能力拉满，网络高敏感时期最佳避风港。</p>
+                        <a href="articles/shunyun.html" class="post-more">阅读全文 →</a>
                     </article>
 
-                    <!-- 卡片: 速界 -->
+                    <!-- 文章 8 -->
                     <article class="post-card">
-                        <img src="images/logos/sujie_logo.png" alt="速界" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0;">
-                        <div style="flex: 1; min-width: 0;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap;">
-                                <h3 class="post-title" style="margin: 0; font-size: 1.25rem;"><a href="articles/sujie.html">速界 (SuJie) 机场深度评测</a></h3>
-                                <span style="font-size: 0.75rem; color: #4f46e5; font-weight: 700; background: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">企业级专线</span>
-                            </div>
-                            <div class="post-meta" style="margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted);">
-                                <span>延迟测试：黄金响应值</span> | <span style="color: var(--primary); font-weight: 600;">月付 ¥25.00 起</span>
-                            </div>
-                            <p class="post-desc" style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">老牌中端企业级IEPL专线机场，晚高峰响应速度快，连接可靠度极高，适合重度用户。</p>
+                        <h3 class="post-title"><a href="articles/sujie.html">速界机场深度评测：高性价比企业级 IEPL 专线的晚高峰实测与选购边界说明</a></h3>
+                        <div class="post-meta">
+                            <span>发表于 2026-04-30</span>
+                            <span>分类：机场测评</span>
                         </div>
-                        <a href="articles/sujie.html" class="post-more">阅读评测 →</a>
+                        <p class="post-desc">老牌中端企业级IEPL专线机场，晚高峰响应速度快，连接可靠度极高，适合重度用户。</p>
+                        <a href="articles/sujie.html" class="post-more">阅读全文 →</a>
                     </article>
 
                 </div>
@@ -287,9 +182,67 @@
                 <div class="pagination" id="reviews-pagination">
                     <!-- Javascript 动态渲染翻页按钮 -->
                 </div>
-
             </div>
-        </section>
+
+            <!-- 左栏：侧边栏区 (1/4 宽度) -->
+            <aside class="blog-sidebar">
+                <!-- 个人信息卡片 -->
+                <div class="widget-card widget-profile">
+                    <div class="profile-avatar"></div>
+                    <h3 class="profile-name">TiZi Top</h3>
+                    <p class="profile-bio">专注于分享网络加速与安全技术</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-label">文章</div>
+                            <div class="stat-value">8</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">分类</div>
+                            <div class="stat-value">5</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-label">标签</div>
+                            <div class="stat-value">12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 公告卡片 -->
+                <div class="widget-card">
+                    <h3 class="widget-title">本站公告</h3>
+                    <p class="announcement-text">
+                        欢迎访问 TiZi Top 评测博客！我们致力于提供中文互联网最具公信力的加速服务与机场梯子深度测评，帮您规避消费陷阱。
+                    </p>
+                </div>
+
+                <!-- 网站运行信息卡片 -->
+                <div class="widget-card">
+                    <h3 class="widget-title">网站信息</h3>
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">文章数目:</span>
+                            <span class="info-value">8 篇</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">运行时间:</span>
+                            <span class="info-value">32 天</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">本站访客数:</span>
+                            <span class="info-value">1024 人</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">本站总浏览量:</span>
+                            <span class="info-value">2548 次</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">最后更新时间:</span>
+                            <span class="info-value">刚刚</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -307,7 +260,7 @@
 
                     items.forEach((item, index) => {
                         if (index >= start && index < end) {
-                            item.style.display = "flex";
+                            item.style.display = "";
                         } else {
                             item.style.display = "none";
                         }
@@ -317,7 +270,7 @@
                     
                     // Smooth scroll to top of section when changing page
                     if (page > 1 || window.scrollY > container.offsetTop) {
-                        document.getElementById("all-reviews-section").scrollIntoView({ behavior: 'smooth' });
+                        container.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
 
@@ -358,7 +311,6 @@
                 showPage(1);
             });
         </script>
-
 
         <!-- E-E-A-T 声明 -->
         <section class="section">
