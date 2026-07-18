@@ -251,12 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
 
-        // Scroll Redirect (fallback)
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 5) {
+        // Keyboard Scroll Redirect (backup)
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'PageDown' || e.key === 'ArrowDown' || e.key === ' ') {
                 redirectToBlog();
             }
-        }, { passive: true });
+        });
     }
 
     // 6. Pricing Tab Filter for Review Pages
