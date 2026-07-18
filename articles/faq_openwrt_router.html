@@ -196,9 +196,9 @@
             <div class="widget toc-widget">
                 <h3 class="widget-title">文章目录</h3>
                 <ul class="toc-list">
-                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
-                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
-                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                    <li class="toc-item"><a href="#section-1">一、 软路由架构与 OpenWrt 透明代理透明分流机制</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 插件实操：OpenClash/PassWall 导入机场配置步骤</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 局域网游戏设备与电视盒子无感出海避坑总结</a></li>
                 </ul>
             </div>
         </aside>
@@ -226,11 +226,11 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
+                    <h2 id="section-1">一、 软路由架构与 OpenWrt 透明代理透明分流机制</h2>
                     <p>软路由相比普通路由器，拥有更强大的 X86 架构处理器和充足的内存空间，能够轻松处理复杂的加密协议解密与规则分流。在 OpenWrt 固件中，最常用的科学上网插件包括 OpenClash、PassWall 和 SSR-Plus。这些插件通过在系统底层建立虚拟网卡与透明代理机制，截获局域网内的所有出境流量，并根据地理位置、域名黑白名单进行智能分流。这不仅能有效加速海外网站，还能防止本地国内网络请求产生不必要的延迟。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 插件实操：OpenClash/PassWall 导入机场配置步骤</h2>
                     <p>1. 登录 OpenWrt 软路由后台，进入系统软件包管理界面；2. 安装您心仪的插件（如 OpenClash）；3. 进入插件配置界面，找到‘配置文件订阅’，粘贴您从专线机场获取的 Clash 节点订阅地址；4. 启用订阅，选择‘透明代理’与‘规则模式’并保存应用。配置完成后，您局域网内的任何设备（包括无法安装代理软件的 Apple TV 或 Switch 游戏机）都能直接访问海外网络。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
@@ -245,9 +245,23 @@
                         </div>
                     </div>
                     
-                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 局域网游戏设备与电视盒子无感出海避坑总结</h2>
                     <p>通过 OpenWrt 软路由进行科学上网配置，虽然在前期搭建时需要一定的技术基础，但一旦配置完成，其带来的全设备无感连接体验是任何单机客户端都无法比拟的，极大地提升了家庭与团队的生产力。</p>
                     <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    
+                    <!-- FAQ 板块 -->
+                    <h2 style="font-size: 1.6rem; margin: 40px 0 20px; color: var(--text-primary); border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">💡 常见问题解答 (FAQ)</h2>
+                    <div class="article-faq-container" style="margin-top: 20px;">
+                                            <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 软路由透明代理模式下，微信、支付宝等国内应用变慢了怎么办？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">请在软路由插件中检查分流规则，确保开启了“中国 IP 绕过”或“绕过大陆 IP”规则。这样国内流量可以直接本地直连，不经过代理内核，避免不必要的延迟。</p>
+                    </div>
+                    <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 软路由上哪个插件配置最稳定、最好用？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">目前 OpenClash 在规则自定义上最强大，PassWall 则在轻量化和多协议混合订阅上表现优秀，根据硬件性能和需求选择即可。</p>
+                    </div>
+
+                    </div>
                 </div>
             </article>
         </main>

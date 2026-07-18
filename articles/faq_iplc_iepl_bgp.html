@@ -196,9 +196,9 @@
             <div class="widget toc-widget">
                 <h3 class="widget-title">文章目录</h3>
                 <ul class="toc-list">
-                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
-                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
-                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                    <li class="toc-item"><a href="#section-1">一、 专线与中转的核心区别：IPLC/IEPL 物理内网专线深度剖析</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 实操验证：如何通过客户端检测专线倍率与晚高峰延迟</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 跨境商务外贸与留学生全专线机场优选避坑规则</a></li>
                 </ul>
             </div>
         </aside>
@@ -226,11 +226,11 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
+                    <h2 id="section-1">一、 专线与中转的核心区别：IPLC/IEPL 物理内网专线深度剖析</h2>
                     <p>BGP中转是利用国内的多线BGP服务器作为入口，接收用户流量后，通过国内的公网隧道传输到海外节点。虽然比直连稳定，但在敏感时期仍会受到公网干扰。而 IPLC（国际私有专用线路）和 IEPL（国际以太网专线）则是真正的‘物理专线’。它们是在国内和境外节点之间直接拉了一根独立的物理光纤，流量全程走内网传输，完全不经过公网出口，因此也彻底绕过了 GFW 的审查。IEPL 相比 IPLC 拥有更高的传输效率和更先进电以太网协议兼容性。全专线架构几乎能做到全年 100% 稳定在线，延迟低且丢包率为零。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 实操验证：如何通过客户端检测专线倍率与晚高峰延迟</h2>
                     <p>选购专线机场时，首先应当确认其订阅地址中节点的实际倍率。有些机场会给专线节点设置极高的流量扣除倍率（如3倍或5倍），导致套餐流量快速消耗。建议寻找提供 1倍率专线 的机场推荐。在获取订阅地址后，将其导入您的客户端。在晚高峰时段（20:00 - 23:00），尝试进行大文件下载或 4K 流媒体播放测试，专线机场在此时依然能够保持极其平稳的速度曲线，而普通公网中转则会出现明显的网速波动。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
@@ -245,9 +245,23 @@
                         </div>
                     </div>
                     
-                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 跨境商务外贸与留学生全专线机场优选避坑规则</h2>
                     <p>对于追求极致稳定、不愿在关键时刻掉链子的商务外贸及留学用户来说，IEPL/IPLC 全专线机场是无可替代的最佳选择。虽然价格略高于普通中转，但其带来的安心体验绝对物超所值。</p>
                     <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    
+                    <!-- FAQ 板块 -->
+                    <h2 style="font-size: 1.6rem; margin: 40px 0 20px; color: var(--text-primary); border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">💡 常见问题解答 (FAQ)</h2>
+                    <div class="article-faq-container" style="margin-top: 20px;">
+                                            <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 为什么专线机场在敏感时期也完全不卡顿、不掉线？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">因为专线机场走的是独立的跨国内网物理光纤（IPLC/IEPL），根本不经过公网的国际出口，因此完全不受 GFW 屏蔽和敏感期公网拥堵的影响。</p>
+                    </div>
+                    <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 如何快速验证我购买的机场是否真的走专线？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">在客户端（如 Clash）中测试该节点的延迟。如果该节点的延迟全天极其平稳、没有大波动，且在公网大波动时依然能稳定跑满带宽，则通常是专线。您也可以核对其节点倍率配置。</p>
+                    </div>
+
+                    </div>
                 </div>
             </article>
         </main>

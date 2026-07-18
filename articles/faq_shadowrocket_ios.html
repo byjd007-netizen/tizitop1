@@ -196,9 +196,9 @@
             <div class="widget toc-widget">
                 <h3 class="widget-title">文章目录</h3>
                 <ul class="toc-list">
-                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
-                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
-                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                    <li class="toc-item"><a href="#section-1">一、 小火箭底层数据拦截与智能分流分级路由原理</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 苹果 iOS 配置步骤：导入专线订阅与开启 VPN 权限</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 美区 Apple ID 购买小火箭与规则过滤避坑规则</a></li>
                 </ul>
             </div>
         </aside>
@@ -226,11 +226,11 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
+                    <h2 id="section-1">一、 小火箭底层数据拦截与智能分流分级路由原理</h2>
                     <p>由于苹果的应用商店政策限制，中国大陆地区的 App Store 无法搜索并下载 Shadowrocket。用户必须准备一个美区、港区或其他非大陆地区的 Apple ID 登录 App Store 才能进行下载。小火箭的底层设计非常精妙，它支持基于 TCP/UDP 的底层数据拦截，并允许用户自定义丰富的分流规则（规则模式）。它能够对广告流量进行自动拦截，对国内域名和海外域名进行秒级智能分流，确保您的网络流量被最合理、最高效地分配。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 苹果 iOS 配置步骤：导入专线订阅与开启 VPN 权限</h2>
                     <p>1. 在美区 App Store 搜索并下载 Shadowrocket（需支付 2.99 美元购买）；2. 打开小火箭，点击右上角的‘+’号；3. 在‘类型’下拉菜单中选择‘Subscrbe’（订阅）；4. 粘贴从机场后台复制的专属订阅地址，并在备注中填写机场名称，点击‘完成’；5. 选中导入的服务器节点，打开顶部的连接开关，并在弹出的系统提示中允许创建 VPN 配置即可开始畅游网络。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
@@ -245,9 +245,23 @@
                         </div>
                     </div>
                     
-                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 美区 Apple ID 购买小火箭与规则过滤避坑规则</h2>
                     <p>虽然 iOS 设备的下载门槛稍高，但 Shadowrocket（小火箭）的稳定表现和全协议支持使其完全值得这番操作。它是您手头最灵巧、最可靠的出海跨境助手。</p>
                     <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    
+                    <!-- FAQ 板块 -->
+                    <h2 style="font-size: 1.6rem; margin: 40px 0 20px; color: var(--text-primary); border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">💡 常见问题解答 (FAQ)</h2>
+                    <div class="article-faq-container" style="margin-top: 20px;">
+                                            <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 如何自己获取美区 Apple ID 并下载小火箭？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">您可以通过苹果官网自行注册美区账号（需使用美国住宅地址生成器），或者在第三方可信平台上购买现成账号，随后使用美区礼品卡充值下载。</p>
+                    </div>
+                    <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 小火箭已成功打开连接，但依然打不开国外网页？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">请检查小火箭的底部菜单是否设置为“配置”或“代理”模式，切勿设为“全局”。同时，检查机场的订阅地址是否过期，或节点列表是否已成功更新。</p>
+                    </div>
+
+                    </div>
                 </div>
             </article>
         </main>

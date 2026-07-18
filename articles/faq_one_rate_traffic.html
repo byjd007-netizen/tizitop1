@@ -196,9 +196,9 @@
             <div class="widget toc-widget">
                 <h3 class="widget-title">文章目录</h3>
                 <ul class="toc-list">
-                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
-                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
-                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                    <li class="toc-item"><a href="#section-1">一、 揭秘节点倍率规则：IPLC 专线与流量乘数的隐形账本</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 良心挑选：核对客户端 Clash 节点 Rate 标志实操</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 4K 流媒体与大文件下载低门槛避坑省钱秘籍</a></li>
                 </ul>
             </div>
         </aside>
@@ -226,11 +226,11 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
+                    <h2 id="section-1">一、 揭秘节点倍率规则：IPLC 专线与流量乘数的隐形账本</h2>
                     <p>节点倍率是机场为了平衡带宽成本而设立的规则。专线（如 IPLC/IEPL）由于物理带宽昂贵，机场通常会通过提高专线节点的倍率来限制用户的过量使用。例如，如果您在 5倍倍率 的专线节点上下载了 1GB 的文件，您的套餐额度就会被扣除 5GB。这对于日常需要进行大文件传输或重度使用流媒体的用户来说，流量会极其迅速地枯竭。而真正的 1倍率机场，则是无论您使用何种节点（包括顶级内网全专线），其流量消耗均按照 1:1 诚实扣除，这背后需要服务商拥有极强的带宽储备与良心的运营理念。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 良心挑选：核对客户端 Clash 节点 Rate 标志实操</h2>
                     <p>1. 在注册机场后，首要任务是进入其节点列表页面，仔细核对每个 Clash 节点 旁的‘倍率’或‘RATE’标识；2. 优先选择将主力 IEPL 专线节点设为 1.0x 倍率的服务商；3. 将订阅地址导入客户端后，可以放心在 1倍率的专线节点上进行大流量操作，如观看 4K Netflix 或下载大文件，这能让您的网络花费发挥出最大价值。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
@@ -245,9 +245,23 @@
                         </div>
                     </div>
                     
-                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 4K 流媒体与大文件下载低门槛避坑省钱秘籍</h2>
                     <p>识破倍率陷阱，优先选择诚实好用的 1倍率机场 推荐，可以让您以最低的月付预算锁定制高点，畅享全专线带来的极致稳定科学上网体验。</p>
                     <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    
+                    <!-- FAQ 板块 -->
+                    <h2 style="font-size: 1.6rem; margin: 40px 0 20px; color: var(--text-primary); border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">💡 常见问题解答 (FAQ)</h2>
+                    <div class="article-faq-container" style="margin-top: 20px;">
+                                            <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 为什么很多机场要在节点列表里设置比如 3x、5x 甚至 10x 倍率？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">因为国内入口到境外的物理内网专线带宽成本极为昂贵，服务商通过设置高倍率限制用户的大流量下载。但良心资质的机场会通过带宽优化，为主力 IEPL 专线提供 1.0x 诚实倍率。</p>
+                    </div>
+                    <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 1倍率专线节点会比高倍率节点的网络速度慢吗？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">不会，节点速度主要取决于服务商租用的海底光纤出口质量和带宽冗余，倍率只是计费规则，1倍率的高品质专线延迟和吞吐力完全一样优秀。</p>
+                    </div>
+
+                    </div>
                 </div>
             </article>
         </main>

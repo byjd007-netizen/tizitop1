@@ -196,9 +196,9 @@
             <div class="widget toc-widget">
                 <h3 class="widget-title">文章目录</h3>
                 <ul class="toc-list">
-                    <li class="toc-item"><a href="#section-1">一、 核心原理与底层背景深度解析</a></li>
-                    <li class="toc-item"><a href="#section-2">二、 实操教程：如何快速配置与一键订阅？</a></li>
-                    <li class="toc-item"><a href="#section-3">三、 长尾关键词与实操避坑指南总结</a></li>
+                    <li class="toc-item"><a href="#section-1">一、 Hysteria2 基于 UDP/QUIC 的抗丢包重传原理</a></li>
+                    <li class="toc-item"><a href="#section-2">二、 跨平台实操：Clash 与 iOS 小火箭 Hysteria2 配置步骤</a></li>
+                    <li class="toc-item"><a href="#section-3">三、 高丢包移动宽带与晚高峰流媒体加速避坑总结</a></li>
                 </ul>
             </div>
         </aside>
@@ -226,11 +226,11 @@
                 </div>
                 
                 <div class="article-body">
-                    <h2 id="section-1">一、 核心原理与底层背景深度解析</h2>
-                    <p>Hysteria2 的核心在于它抛弃了 TCP 协议的拥塞控制机制，转而使用自研的 BBR/UDP 拥塞算法。在传统的 TCP 传输中，一旦发生数据包丢失，发送端就会主动降低传输速率以应对‘网络拥堵’。但在复杂的跨境网络中，丢包往往是由于防火墙干扰或骨干网节点拥堵造成的随机丢包。Hysteria2 会主动、强力地填补丢包空隙，不因丢包而减速，甚至能通过双向主动重传维持极高的数据吞吐量。在实测中，即使在丢包率高达 30% 的极恶劣网络环境下，Hysteria2 依然能将千兆大吞吐的专线速度跑满，堪称网络避风港。</p>
+                    <h2 id="section-1">一、 Hysteria2 基于 UDP/QUIC 的抗丢包重传原理</h2>
+                    <p>Hysteria2 的核心在于它抛弃了 TCP 协议的拥塞控制机制，转而使用自研的 BBR/UDP 拥塞算法。在传统的 TCP 传输中，一旦发生数据包丢失，发送端就会主动降低传输速率以应对‘网络拥堵’。但在复杂的跨境网络中，丢包往往是由于防火墙干扰或骨干网节点拥堵造成的随机丢包。Hysteria2 会主动、强力地填补丢包空隙，不因丢包而减速，甚至能通过双向主动重传维持极高的数据吞吐量。在实测中，即使在丢包率高达 30% 的极恶劣网络环境 下，Hysteria2 依然能将千兆大吞吐的专线速度跑满，堪称网络避风港。</p>
                     <p>通过深入剖析，我们不难发现其设计的初衷就是最大程度对抗 GFW 深度包检测。它抛弃了臃肿的数据帧头部特征，对网络协议进行多维隐蔽化加密，为访问海外资源提供最安全、顺畅的连通性保障。</p>
                     
-                    <h2 id="section-2">二、 实操教程：如何快速配置与一键订阅？</h2>
+                    <h2 id="section-2">二、 跨平台实操：Clash 与 iOS 小火箭 Hysteria2 配置步骤</h2>
                     <p>配置 Hysteria2 非常简单，主要依赖支持该协议 of 最新版客户端：1. 复制机场提供的 Hysteria2 订阅地址；2. 在 Shadowrocket（小火箭）中，点击右上角‘+’号，类型选择‘Subscribe’，粘贴链接并保存；3. 在 Clash 方面，需要下载支持最新 Hysteria2 协议的内核版本（如 Clash Meta/Mihomo 内核），直接导入配置即可。配置完成后，可以在客户端内进行延迟测试，您会发现即使在传统节点集体超时的情况下，Hysteria2 节点依然能够秒级响应。</p>
                     <p>除了个人自建节点以外，目前业界大部分主流中高端专线翻墙机场也已部署了这些高隐蔽性协议。在使用时，最省心的方式是获取机场的订阅地址，并导入您的智能设备（如 Clash 节点、小火箭等），享受透明的分流代理体验。</p>
 
@@ -245,9 +245,23 @@
                         </div>
                     </div>
                     
-                    <h2 id="section-3">三、 长尾关键词与实操避坑指南总结</h2>
+                    <h2 id="section-3">三、 高丢包移动宽带与晚高峰流媒体加速避坑总结</h2>
                     <p>Hysteria2 以其极其霸道的抗丢包吞吐能力，成为了科学上网领域的一柄破冰利器。无论是海外资讯查阅、跨国游戏联机，还是跨境电商的高频操作，它都是保障连通性的不二之选。</p>
                     <p>对于技术型用户 and 跨国业务团队而言，在享受极速的同时，也应重点选择配备了纯净 IP 的解锁流媒体节点。不仅可以流畅观赏海外流媒体，更能大幅度规避验证码拦截，保障工作效率。</p>
+                    
+                    <!-- FAQ 板块 -->
+                    <h2 style="font-size: 1.6rem; margin: 40px 0 20px; color: var(--text-primary); border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">💡 常见问题解答 (FAQ)</h2>
+                    <div class="article-faq-container" style="margin-top: 20px;">
+                                            <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ 为什么 Hysteria2 协议在晚高峰网速表现最稳？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">传统的 TCP 代理遇到网络丢包时会自动减速；而 Hysteria2 采用基于 UDP 的 QUIC 协议与自主拥塞算法，会强力填补丢包空余，从而在恶劣、拥堵的高丢包网络环境下依然能跑满带宽。</p>
+                    </div>
+                    <div class="faq-card" style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: var(--shadow-sm);">
+                        <h4 style="font-size: 1.05rem; color: var(--primary); margin: 0 0 10px 0; font-weight: 700;">❓ Hysteria2 会被部分网络运营商限制或限速吗？</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">是的，由于 Hysteria2 采用 UDP 协议，部分地区运营商会对大流量 UDP 进行 QoS 限制。建议选择带有 BGP/IEPL 专线中转的机场，以消除 UDP 阻断影响。</p>
+                    </div>
+
+                    </div>
                 </div>
             </article>
         </main>
