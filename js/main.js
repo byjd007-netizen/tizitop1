@@ -134,25 +134,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = item.querySelector('.faq-question-btn');
             const answer = item.querySelector('.faq-answer');
             
-            btn.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                // Close all other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+            if (btn && answer) {
+                btn.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            const otherAns = otherItem.querySelector('.faq-answer');
+                            if (otherAns) otherAns.style.maxHeight = null;
+                        }
+                    });
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = null;
                     }
                 });
-                
-                if (!isActive) {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                } else {
-                    item.classList.remove('active');
-                    answer.style.maxHeight = null;
-                }
-            });
+            }
         });
     }
 
@@ -254,5 +257,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 redirectToBlog();
             }
         }, { passive: true });
+    }
+
+    // 6. Pricing Tab Filter for Review Pages
+    const pricingTabBtns = document.querySelectorAll('.pricing-tab-btn');
+    const pricingCards = document.querySelectorAll('.pricing-card-item');
+    if (pricingTabBtns.length > 0 && pricingCards.length > 0) {
+        pricingTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                pricingTabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                pricingCards.forEach(card => {
+                    const cardType = card.getAttribute('data-type');
+                    if (filter === 'all' || cardType === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     }
 });
