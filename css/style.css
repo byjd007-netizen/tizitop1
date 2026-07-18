@@ -1299,3 +1299,55 @@ a:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 12px var(--primary-glow);
 }
+
+/* Three-column layout specific styles for reviews and guides */
+.sidebar-left {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.toc-widget {
+    position: sticky;
+    top: 100px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.toc-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+}
+
+.toc-item a:hover {
+    color: var(--primary);
+    border-left-color: var(--primary);
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+    .sidebar-left {
+        width: 100%;
+    }
+    .toc-widget {
+        position: static;
+    }
+}

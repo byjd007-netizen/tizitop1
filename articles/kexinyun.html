@@ -194,13 +194,16 @@
             width: 320px;
             flex-shrink: 0;
         }
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .article-layout-container {
                 flex-direction: column;
                 margin-top: 100px;
             }
-            .sidebar-right {
+            .sidebar-left, .sidebar-right {
                 width: 100%;
+            }
+            .toc-widget {
+                position: static;
             }
         }
         .widget {
@@ -275,6 +278,23 @@
     </header>
 
     <div class="article-layout-container">
+        <!-- 宸︿晶锛氭枃绔犵洰褰?-->
+        <aside class="sidebar-left">
+            <div class="widget toc-widget">
+                <h3 class="widget-title">鏂囩珷鐩綍</h3>
+                <ul class="toc-list">
+                    <li class="toc-item"><a href="#section-1">一、2026年翻墙大势与可信云...</a></li>
+                    <li class="toc-item"><a href="#section-2">二、可信云机场核心技术特性与架...</a></li>
+                    <li class="toc-item"><a href="#section-3">三、全周期套餐资费与升级策略详...</a></li>
+                    <li class="toc-item"><a href="#section-4">四、晚高峰多节点网络延迟与 Y...</a></li>
+                    <li class="toc-item"><a href="#section-5">五、流媒体与主流 AI 工具原...</a></li>
+                    <li class="toc-item"><a href="#section-6">六、可信云出口 IP 风控与风...</a></li>
+                    <li class="toc-item"><a href="#section-7">七、可信云机场核心优缺点对比与...</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- 涓棿锛氭鏂囦富鏍?-->
         <!-- Main Content -->
         <main class="main-content">
                     <div class="breadcrumbs" style="margin-bottom: 25px; font-size: 0.95rem; color: #64748b; padding-bottom: 15px; border-bottom: 1px dashed #e2e8f0;">
@@ -306,11 +326,11 @@
     <img src="../images/logos/kexinyun_logo.png?v=2" alt="可信云机场" style="width: 240px; height: 240px; object-fit: cover; border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.15);">
 </div>
 
-<h2>一、2026年翻墙大势与可信云机场的成立背景</h2>
+<h2 id="section-1">一、2026年翻墙大势与可信云机场的成立背景</h2>
 <p>2026 年，科学上网的局势正在发生深刻的变化。传统的直连中转（如轻量云、中转隧道）正面临越来越频繁的端口阻断与流量审查。对于需要高频使用 OpenAI ChatGPT、Google Gemini 等人工智能工具的科研工作者，或是依赖外贸、跨境电商业务的高级网民而言，普通的低成本线路由于丢包频繁和 IP 风控严格，已经无法支撑起稳定生产力的需求。在此背景下，端到端、零丢包的 IEPL / IPLC 物理专线成为了市场的刚需。</p>
 <p><b>可信云机场（Kosing Cloud）</b>正是于 2026 年初上线的一家主打“企业级专线平民化”的新锐站点。在上线初期，可信云通过提供价格极低（年付仅 ¥96 元起，月付 ¥15 元起）的专线套餐，以及全套傻瓜式、一键连接的自研客户端（Windows、macOS、Android、iOS）切入市场。其核心口径是<b>“全线 IEPL 专线，不限速，不限制设备连接，无倍率套路”</b>。虽然运营时间尚浅，但可信云在低门槛专线体验这块，快速积累了相当一部分预算敏感型与新手用户的关注。</p>
 
-<h2>二、可信云机场核心技术特性与架构分析</h2>
+<h2 id="section-2">二、可信云机场核心技术特性与架构分析</h2>
 <p>在网络底层设计与技术实现上，可信云有其鲜明的技术标签，但同时也暴露出了一些在 2026 年较为典型的限制：</p>
 <h3>1. 企业级物理专线的稳定性基础</h3>
 <p>可信云官方宣称全站节点均部署了 IEPL（国际以太网专线）及部分 IPLC 物理独享带宽。数据流量在国内入口服务器进行协议打包和加密后，通过跨境物理光缆直达海外落地机房，全程不进入公网，不与普通网民抢占骨干网出口。因此在晚高峰期间，即使公网波动严重，专线丢包率也几乎能维持在 0% 左右。这是普通便宜隧道机场所无法比拟的底层优势。</p>
@@ -319,7 +339,7 @@
 <h3>3. 自研客户端一键连接与节点协议</h3>
 <p>对于不爱折腾的技术小白来说，这反而成为了一个优点。可信云提供覆盖 Windows、Android、macOS 以及 iOS（需外区 Apple ID）的一键定制 App，免去了配置、路由规则分流等繁杂配置，登录账号即可一键翻墙。节点底层采用 VLESS 等性能优异的轻量级协议，最大程度降低由于多重加密导致的网络延迟开销。</p>
 
-<h2>三、全周期套餐资费与升级策略详细剖析</h2>
+<h2 id="section-3">三、全周期套餐资费与升级策略详细剖析</h2>
 <p>可信云的套餐资费档位设定极其透明，常规套餐均写明<b>“全 IEPL 专线、不限制设备连接数、不限制速率”</b>。同时，为了对抗其他低价机场，可信云在近期对其常规套餐进行了“加量不加价”的升级，具体套餐流量与价格如下表所示：</p>
 <div class="pricing-sec-container">
   <div class="pricing-tabs-row">
@@ -560,7 +580,7 @@
 </div>
 <p>在付款方式上，可信云表现得非常接地气，全面支持中国大陆用户习惯的**微信支付、支付宝支付**，同时针对海外及虚拟货币用户开放了 **USDT（TRC-20）** 收款。需要注意的是，年费小礼包仅支持一次性整年付，中途无法进行重置。常规版（基础版及以上）则支持 ¥10 一次的流量手动重置，极大满足了特定月份突发大流量使用的痛点。</p>
 
-<h2>四、晚高峰多节点网络延迟与 YouTube 4K 实测表现</h2>
+<h2 id="section-4">四、晚高峰多节点网络延迟与 YouTube 4K 实测表现</h2>
 <p>我们在国内典型的网络环境（上海联通 500M 家用宽带）下，针对可信云在<b>晚高峰（20:00 - 23:00）</b>的极度拥堵时段进行了多节点压力测试。在这一公网拥堵时间，可信云依靠 IEPL 物理专线展现出了优秀的丢包控制与流畅连通延迟：</p>
 <div style="overflow-x:auto;">
     <table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 15px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
@@ -626,14 +646,14 @@
 <h3>YouTube 4K Stats for Nerds 详细跑分实测：</h3>
 <p>我们对可信云进行了一连串的 YouTube 视频播放测试。在 <b>4K 60FPS 超高清视频模式（3840 x 2160）</b>下，可信云的专用客户端节点表现可圈可点：<b>Stats for Nerds 截图显示连接速度基本稳定在 38,902 Kbps 到 55,000 Kbps 之间</b>，视频缓冲池大小维持在 3.71s 以上，拖动滚动条后没有产生严重的画面卡顿和旋转等待现象。在极速版自研客户端下，日本和香港的物理延迟也维持在正常范围内。需要特别注意的是，这属于阶段性的快照测速，由于是新站，长期稳定与拥堵情况，在后续大面积用户涌入之后仍需要留痕持续跟踪观察。</p>
 
-<h2>五、流媒体与主流 AI 工具原生解锁情况</h2>
+<h2 id="section-5">五、流媒体与主流 AI 工具原生解锁情况</h2>
 <p>对于需要大量查阅资料、看剧、使用 AI 的高阶办公人群而言，可信云对全球各类高频站点的兼容性非常全面，在一周的实测中，共计 **82个国际高频站点** 进行了连通与延迟轮询测试，成功率高达 81/82，表现极其强悍：</p>
 <ul>
     <li><b>主流流媒体解锁</b>：日本、新加坡和台湾的落地节点对 **Netflix（奈飞）**、**Disney+**、**HBO Max** 以及 **Hulu** 均展现出了优秀的原生解锁度。除了自制剧外，其他受版权保护的当地电影和独占动漫均可正常显示并载入，没有出现被流媒体服务检测为“Proxy”的警告信息。</li>
     <li><b>AI 连通延迟实测</b>：可信云专线对几大知名大模型站点做了路由优化。**OpenAI 连通只需 0.46s，ChatGPT 网页载入 0.71s，Claude 0.36s，Google Gemini 0.38s**。唯独 Anthropic 某特定接口出现了偏高的 3.22s 连通时间，但对于日常使用没有太大阻碍，AI 重度极客可放心作为生产力工具。</li>
 </ul>
 
-<h2>六、可信云出口 IP 风控与风险系数评估（IPPure）</h2>
+<h2 id="section-6">六、可信云出口 IP 风控与风险系数评估（IPPure）</h2>
 <p>作为一个专业测评站点，我们必须为用户呈现不为常人注意的网络底层细节。我们对可信云所提供的代理 IP 出口信息进行了 IP 风险轮询：</p>
 <ol>
     <li><b>出口 ASN 信息</b>：可信云的美国落地节点出口 IP 主要分配于 <b>AS1054 Zont LLC (VMISS 洛杉矶机房)</b>。物理机房位置一般显示为美国洛杉矶，Bilibili 视频等平台显示的物理位置同样为美国。</li>
@@ -641,7 +661,7 @@
     <li><b>建议防范场景</b>：由于其出口带有 VPN / Proxy / 数据中心等典型广播 IP 标签，<b>我们极度不建议您使用可信云去注册或登录对 IP 住宅纯净度有极高要求的支付、金融类账号（如 Stripe、Paypal、美区银行账户）以及需要超低风控评级的广告投放平台（如 Google Ads、Facebook Ads）</b>，以防被判定为垃圾注册或产生封号。而对于普通的 Google 查资料、奈飞看剧、使用 ChatGPT 聊天等常见场景，这一风险系数完全可以忽略，可以正常畅快连接。</li>
 </ol>
 
-<h2>七、可信云机场核心优缺点对比与理性避坑指南</h2>
+<h2 id="section-7">七、可信云机场核心优缺点对比与理性避坑指南</h2>
 <p>为了让您的选择更具性价比，我们客观列举了可信云在 2026 年的优点与面临的不确定性：</p>
 <div style="display:flex; flex-wrap:wrap; gap:20px; margin:25px 0;">
     <div style="flex:1; min-width:300px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:20px;">
